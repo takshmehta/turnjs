@@ -2,7 +2,7 @@ var s=true;
 $("#flipbook").turn({
     width: 1020,
     height: 790,
-    duration:800
+    duration:1600
 });
 
 // auto turn bottom right corner using peel effect of turnjs 
@@ -67,7 +67,7 @@ function lastPagePaddingReduce () {
     document.querySelector('.m1').style.paddingLeft='20rem';
     document.querySelector('body').style.overflow='hidden';
     $('.right-icon-div').css({'display':'block'})
-    $('.left-icon-div').css('left','16rem')
+    $('.left-icon-div').css('left','18rem')
  
   } else  {
     setTimeout(lastPagePaddingReduce, 50); //wait 50 ms, then try again
@@ -81,7 +81,7 @@ function firstPage () {
      
       document.querySelector('.m1').style.paddingLeft='0rem';
       document.querySelector('body').style.overflow='hidden';
-      $('.right-icon-div').css({'right':'29rem'})
+      $('.right-icon-div').css({'right':'30rem'})
       $('.left-icon-div').css('display','none')
     } else  {
       setTimeout(firstPage, 50); //wait 50 ms, then try again
@@ -139,3 +139,8 @@ $('.left-icon-div').click(function(){
 
 
 
+const firstPageShadow=document.querySelector('.p1');
+
+const newElement=firstPageShadow.parentElement.parentElement;
+
+newElement.classList.add('first-page-shadow');
