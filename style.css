@@ -204,3 +204,11 @@ body{
     display: none;
     cursor: pointer;
 }
+
+.m2{
+    padding-left: 10rem!important;
+}
+
+.display-block-for-left{
+    display: block!important;
+}

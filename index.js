@@ -2,29 +2,38 @@ var s=true;
 $("#flipbook").turn({
     width: 1020,
     height: 790,
-    duration:1600
+    duration:3200
 });
 
 // auto turn bottom right corner using peel effect of turnjs 
 $("#flipbook").turn("peel", "br");
 
+
 $(window).bind('keydown', function(e){
     if (e.keyCode==37){
-      console.log('key 37')
-    $('#flipbook').turn('previous');
-   
-     jQuery(document).ready(lastPagePaddingReduce);
-     jQuery(document).ready(firstPage);
-
-
-}
-    else if (e.keyCode==39)
-    $('#flipbook').turn('next');
+      $('#flipbook').turn('previous');
+      if($('.p1').is(':visible')){
+      document.querySelector('.m1').style.paddingLeft='0rem';
+      }
+    
+} else if (e.keyCode==39)
+    
   
-     jQuery(document).ready(inBetweenPage);
- 
-     jQuery(document).ready(lastPage);
-     
+    // $('.right-icon-div').css({'right':'10rem'})
+    // $('.left-icon-div').css('display','block')
+  
+    $('#flipbook').turn('next');
+    document.querySelector('.m1').style.paddingLeft='20rem';
+    document.querySelector('.left-icon-div').style.display='block';
+    document.querySelector('.right-icon-div').style.right='10rem';
+    if($('.p14').is(':visible')){
+      document.querySelector('.m1').style.paddingLeft='40rem';
+      document.querySelector('.left-icon-div').style.display='none';
+      document.querySelector('.right-icon-div').style.right='22rem';
+    }
+      //  jQuery(document).ready(inBetweenPage);
+      //  jQuery(document).ready(lastPage);
+       
 
     }
     );
@@ -60,6 +69,20 @@ function lastPage () {
   }
 }
 
+function lastPageForLeftButton(){
+  if($('.p14').is(':visible')){ //if the container is visible on the page
+    // alert('12')
+    document.querySelector('.m1').style.paddingLeft='0rem';
+    document.querySelector('body').style.overflow='hidden';
+    $('.right-icon-div').css({'display':'block'})
+    $('.left-icon-div').css('left','18rem')
+ 
+  } else  {
+    setTimeout(lastPageForLeftButton, 50); //wait 50 ms, then try again
+   
+  }
+
+}
 
 function lastPagePaddingReduce () {
   if($('.p13.odd').is(':visible')){ //if the container is visible on the page
@@ -137,7 +160,14 @@ $('.left-icon-div').click(function(){
 
 })
 
+function fuck(){
+  $('.right-icon-div').css({'display':'block'})
+ 
+  $('#flipbook').turn('previous');
+  jQuery(document).ready(lastPagePaddingReduce);
+  jQuery(document).ready(firstPage);
 
+}
 
 const firstPageShadow=document.querySelector('.p1');
 
