@@ -32,25 +32,17 @@ jQuery(document).ready(firstPage);
 $(window).bind('keydown', function(e){
     if (e.keyCode==37)
     { 
-      $('#flipbook').turn('previous'); //turnjs  method 
-      // developer write code when p1 class ( p1 means page1 )is visible 
-      if($('.p1').is(':visible')){
-          document.querySelector('.flipbookContainer').style.paddingLeft='0rem';
-      }
+      $('.right-icon-div').css({'display':'block'})
+      $('#flipbook').turn('previous');
+      jQuery(document).ready(lastPagePaddingReduce);
+      jQuery(document).ready(firstPage);
     }else if (e.keyCode==39)
       {
-          $('#flipbook').turn('next');   //turnjs  method 
-          // developer write code 
-          document.querySelector('.flipbookContainer').style.paddingLeft='20rem';
-          document.querySelector('.left-icon-div').style.display='block';
-          document.querySelector('.right-icon-div').style.right='10rem';
-          // developer write code when p14 class ( p14 means page14 )is visible 
-          if($('.p14').is(':visible'))
-          {
-               document.querySelector('.flipbookContainer').style.paddingLeft='40rem';
-               document.querySelector('.left-icon-div').style.display='none';
-               document.querySelector('.right-icon-div').style.right='22rem';
-          }
+        $('.right-icon-div').css({'right':'10rem'})
+        $('.left-icon-div').css('display','block')
+        $('#flipbook').turn('next');
+        jQuery(document).ready(inBetweenPage);
+        jQuery(document).ready(lastPage); 
       }
   });
 
